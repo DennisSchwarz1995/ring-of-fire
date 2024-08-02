@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$background_color_gray: #404040;
+
+@mixin height($h: 100dvh) {
+  height: $h;
+}
+
+@mixin width($w: 100%) {
+  width: $w;
+}
+
+@mixin position($p) {
+    position: $p;
+}
+
+@mixin backgroundImage($bi, $bp: center, $bs: cover, $br: no-repeat) {
+    background-image: url($bi);
+    background-position: $bp;
+    background-size: $bs;
+    background-repeat: $br;
+}
+
+@mixin displayFlex($df: flex, $jc: center, $ai: center) {
+  display: $df;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin cursorPointer($p: pointer) {
+  cursor: $p;
+}

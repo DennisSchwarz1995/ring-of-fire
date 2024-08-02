@@ -1,0 +1,26 @@
+@import './../../styles.scss';
+
+.startScreen {
+    @include height();
+    @include width();
+    background: $background_color_gray;
+    @include displayFlex();
+    >img {
+        @include height();
+    }
+}
+
+.startLabelContainer {
+    @include position(absolute);
+    inset: 300px 0 0 0;
+    @include displayFlex();
+    >img {
+        @include width(40vw);
+        @include height(auto);
+
+        &:hover {
+            filter: brightness(1.5);
+            @include cursorPointer();
+        }
+    }
+}
