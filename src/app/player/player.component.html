@@ -1,4 +1,4 @@
-<main class="player">
+<main class="player" [class.activePlayer]="activePlayer">
   <span>{{ name }}</span>
-  <img src="/assets/img/profile/player_icon_gray.svg" alt="player_icon" />
+  <img src="/assets/img/profile/player_icon_{{ color }}.svg" alt="player_icon" />
 </main>

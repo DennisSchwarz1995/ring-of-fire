@@ -14,13 +14,27 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { GameInfoComponent } from '../game-info/game-info.component';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogActions, MatDialogContent, MatDialogClose, MatDialogTitle],
+  imports: [
+    CommonModule,
+    PlayerComponent,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogClose,
+    MatDialogTitle,
+    GameInfoComponent,
+  ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
 })
@@ -41,10 +55,11 @@ export class GameComponent {
     if (!this.cardAnimationPlaying) {
       this.currentCard = this.game.stack.pop() as string;
       this.cardAnimationPlaying = true;
-
-      console.log('New Card:', this.currentCard);
-      console.log('Game:', this.game);
     }
+
+    this.game.currentPlayer++;
+    this.game.currentPlayer =
+      this.game.currentPlayer % this.game.players.length;
 
     setTimeout(() => {
       this.game.playedCards.push(this.currentCard);
@@ -55,8 +70,10 @@ export class GameComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe(name => {
-       this.game.players.push(name);
+    dialogRef.afterClosed().subscribe((name) => {
+      if (name && name.length > 0) {
+        this.game.players.push(name);
+      }
     });
   }
 }

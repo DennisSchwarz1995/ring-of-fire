@@ -42,12 +42,12 @@
 .addButton {
   @include position(absolute);
   right: 32px;
-  bottom: 32px;
-  background-color: #2196f3;
+  bottom: 54px;
+  background-color: $background_color_cyan;
   color: white;
 
   &:hover {
-   background-color: #1976d2;
+   background-color: $background_color_hover_cyan;
   }
 }
 

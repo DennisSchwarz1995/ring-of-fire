@@ -3,7 +3,13 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 $background_color_gray: #404040;
+$background_color_cyan: #2196f3;
+$background_color_hover_cyan: #1976d2;
 
 @mixin height($h: 100dvh) {
   height: $h;
@@ -14,14 +20,14 @@ $background_color_gray: #404040;
 }
 
 @mixin position($p) {
-    position: $p;
+  position: $p;
 }
 
 @mixin backgroundImage($bi, $bp: center, $bs: cover, $br: no-repeat) {
-    background-image: url($bi);
-    background-position: $bp;
-    background-size: $bs;
-    background-repeat: $br;
+  background-image: url($bi);
+  background-position: $bp;
+  background-size: $bs;
+  background-repeat: $br;
 }
 
 @mixin displayFlex($df: flex, $jc: center, $ai: center) {
@@ -33,7 +39,4 @@ $background_color_gray: #404040;
 @mixin cursorPointer($p: pointer) {
   cursor: $p;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 

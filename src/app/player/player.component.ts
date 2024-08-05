@@ -10,4 +10,6 @@ import { Component, Input } from '@angular/core';
 export class PlayerComponent {
 
   @Input()name:string | undefined;
+  @Input()color:string | undefined;
+  @Input()activePlayer: boolean = false;
 }

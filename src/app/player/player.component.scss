@@ -3,7 +3,17 @@
 .player {
   @include displayFlex();
   flex-direction: column;
-  @include width(200px);
-  font-size: 20px;
+  @include width(100px);
+  font-size: 18px;
   font-weight: 600;
+  > span {
+    color: black
+  }
+}
+
+.activePlayer {
+  filter: drop-shadow(5px 5px 20px #ededed);
+  >span {
+    color: white;
+  }
 }

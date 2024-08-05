@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -12,6 +13,7 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-dialog-add-player',
@@ -25,12 +27,22 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     FormsModule,
     MatButtonModule,
+    MatSelectModule, 
+    CommonModule
   ],
   templateUrl: './dialog-add-player.component.html',
   styleUrl: './dialog-add-player.component.scss',
 })
 export class DialogAddPlayerComponent {
   name: string = '';
+  selectedColor: string = 'gray';
+  colors: string[] = ['gray', 'blue', 'green', 'purple', 'red', 'yellow'];
 
-  onNoClick() {}
+  constructor(private dialogRef: MatDialogRef<DialogAddPlayerComponent>) {
+
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }
