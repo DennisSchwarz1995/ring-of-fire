@@ -33,3 +33,7 @@ $background_color_gray: #404040;
 @mixin cursorPointer($p: pointer) {
   cursor: $p;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
